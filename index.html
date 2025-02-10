@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Chatbot</title>
+</head>
+<body>
+  <div class="container">
+    <h1>AP Computer Science Chatbot</h1>
+    <img src="/home/aiml/ai/static/index_background.png" />
+    <div class="chatbox">
+	<div id="chatlogs"></div>
+	<div class="button-box">
+	    <input type="text" id="userInput" placeholder="Type your question & Hit send ..." autofocus>
+            <button onclick="sendMessage()">Send</button>
+	</div>
+    </div>
+    
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById("userInput").value;
+            document.getElementById("chatlogs").innerHTML += `<div style="color: #A9A9A9;">User: ${userInput}</div>`;
+            document.getElementById("userInput").value = '';
+
+            fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `message=${encodeURIComponent(userInput)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("chatlogs").innerHTML += `<div>HiPiE: ${data.response}</div>`;
+            });
+        }
+    </script>
+  </div>
+</body>
+</html>
