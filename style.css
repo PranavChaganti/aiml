@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-color: #2E4A48;
+}
+h1 {
+    color: black;
+    text-decoration-style: solid;
+    text-align:center;
+    text-shadow: 2px 2px 5px red;
+}
+.chatbox {
+    position: relative;
+    bottom: 10px;
+    background-color: #2E4A48;
+    width: 1000px;
+    margin: 0 auto;
+    overflow-y: auto;
+    border: 10px solid #ccc; ### This is border width for outer box
+    padding: 10px;
+    border-radius: 10px;
+    border-color: ridge;
+}
+
+#chatlogs {
+    flex-grow: 1;
+    background-color: #2E4A48;
+    height: 90vh; ## Upper box height
+    border: 10px solid #ccc; ### Upper bo dark boarder width
+    padding: 10px;
+    overflow: visible;
+    margin-bottom: 10px;
+    overflow-y: auto;
+}
+
+input[type="text"] {
+    width: 90%; ## Input box width to input message by user
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.button-box {
+    margin-top: 10px;
+    position: relative;
+    padding: 20px; # Send button overall size 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;  /* Full viewport height */
+    justify-content: flex-start; /* Align items to the top */
+    padding: 10px;
+}
